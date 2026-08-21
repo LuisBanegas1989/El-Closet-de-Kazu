@@ -74,9 +74,10 @@
             font-weight: 700;
         }
         .brand img {
-            height: 40px;
+            height: 50px;
             width: auto;
             border-radius: 8px;
+            object-fit: contain;
         }
         .brand span {
             color: var(--rosa);
@@ -195,7 +196,10 @@
             padding: 20px;
         }
         .hero-image img {
-            width: min(100%, 400px);
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            max-height: 380px;
             border-radius: 12px;
             object-fit: cover;
             mix-blend-mode: multiply;
@@ -405,11 +409,11 @@
             transform: scale(1.03);
         }
 
-        /* ===== MODAL DE DETALLES ===== */
+        /* ===== MODAL DE DETALLES (con imagen grande) ===== */
         .detail-modal {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, .5);
+            background: rgba(0, 0, 0, .6);
             backdrop-filter: blur(6px);
             z-index: 2000;
             display: none;
@@ -424,11 +428,11 @@
         .detail-box {
             background: var(--blanco);
             border-radius: var(--radius);
-            max-width: 560px;
+            max-width: 600px;
             width: 100%;
-            max-height: 90vh;
+            max-height: 92vh;
             overflow-y: auto;
-            padding: 32px 28px;
+            padding: 28px 24px 24px;
             box-shadow: 0 40px 80px rgba(0, 0, 0, .3);
             animation: slideUp 0.3s ease;
         }
@@ -440,9 +444,28 @@
             cursor: pointer;
             color: var(--gris);
             transition: color var(--transition);
+            padding: 0 4px;
         }
         .detail-box .close-detail:hover {
             color: var(--negro);
+        }
+        .detail-box .detail-image {
+            width: 100%;
+            max-height: 340px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f8f0ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .detail-box .detail-image img {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: contain;
+            border-radius: 12px;
         }
         .detail-box .detail-category {
             font-size: 12px;
@@ -450,37 +473,37 @@
             letter-spacing: 1px;
             color: var(--rosa);
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .detail-box h3 {
             font-family: 'Georgia', serif;
             font-size: 28px;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 4px;
         }
         .detail-box .detail-price {
             font-weight: 700;
             font-size: 24px;
             color: var(--rosa);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .detail-box .detail-desc {
             color: var(--gris);
             font-size: 16px;
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .detail-box .detail-attributes {
             border-top: 1px solid var(--gris-claro);
-            padding-top: 16px;
-            margin-bottom: 16px;
+            padding-top: 14px;
+            margin-bottom: 12px;
         }
         .detail-box .detail-attributes .attr {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px dashed var(--gris-claro);
+            padding: 4px 0;
             font-size: 15px;
+            border-bottom: 1px dashed var(--gris-claro);
         }
         .detail-box .detail-attributes .attr .label {
             color: var(--gris);
@@ -489,19 +512,15 @@
             font-weight: 600;
             color: var(--negro);
         }
-        .detail-box .detail-note {
-            background: var(--rosa-claro);
-            padding: 14px 18px;
-            border-radius: 12px;
-            font-size: 14px;
+        .detail-box .detail-attributes .no-attr {
             color: var(--gris);
-            border-left: 4px solid var(--rosa);
-            margin-top: 12px;
+            font-size: 14px;
+            display: none;
         }
         .detail-box .btn-add {
             width: 100%;
             justify-content: center;
-            margin-top: 16px;
+            margin-top: 8px;
             padding: 14px;
             font-size: 16px;
         }
@@ -727,13 +746,6 @@
         .admin-panel .image-helper .example .label {
             font-weight: 600;
             color: var(--negro);
-        }
-        .admin-panel .image-helper .example .drive-id {
-            background: #f0e8e4;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 13px;
         }
 
         .test-image-btn {
@@ -1118,6 +1130,9 @@
                 padding: 16px;
                 order: -1;
             }
+            .hero-image img {
+                max-height: 280px;
+            }
             .filter-bar {
                 flex-direction: column;
                 align-items: stretch;
@@ -1136,6 +1151,18 @@
             }
             .brand {
                 font-size: 22px;
+            }
+            .brand img {
+                height: 40px;
+            }
+            .detail-box {
+                padding: 20px 16px;
+            }
+            .detail-box .detail-image {
+                max-height: 250px;
+            }
+            .detail-box .detail-image img {
+                max-height: 250px;
             }
         }
 
@@ -1172,7 +1199,19 @@
                 font-size: 13px;
             }
             .detail-box {
-                padding: 24px 18px;
+                padding: 16px 12px;
+            }
+            .detail-box .detail-image {
+                max-height: 200px;
+            }
+            .detail-box .detail-image img {
+                max-height: 200px;
+            }
+            .detail-box h3 {
+                font-size: 22px;
+            }
+            .brand img {
+                height: 35px;
             }
         }
 
@@ -1194,8 +1233,7 @@
     <header>
         <div class="nav">
             <div class="brand">
-                <!-- Logo con enlace directo de Drive (formato correcto) -->
-                <img src="https://lh3.googleusercontent.com/d/1AVdJXnn7RGWLU3n0HKxTVldyPnflXfua" alt="El Closet de Kazu" />
+                <img src="https://lh3.googleusercontent.com/d/1BXXNnkc8LmdWFMAKx358lM07ulcpi5m7" alt="El Closet de Kazu" />
                 El Closet <span>de Kazu</span>
             </div>
             <div class="nav-links">
@@ -1222,7 +1260,6 @@
                 <a href="#catalogo" class="btn-primary">Ver colección</a>
             </div>
             <div class="hero-image">
-                <!-- Imagen del héroe con enlace directo de Drive -->
                 <img src="https://lh3.googleusercontent.com/d/1BXXNnkc8LmdWFMAKx358lM07ulcpi5m7" alt="El Closet de Kazu" />
             </div>
         </div>
@@ -1258,21 +1295,20 @@
     </section>
 
     <!-- ============================================================
-    MODAL DE DETALLES
+    MODAL DE DETALLES (con imagen grande y sin mensajes innecesarios)
     ============================================================ -->
     <div class="detail-modal" id="detailModal">
         <div class="detail-box">
             <button class="close-detail" id="closeDetailBtn">&times;</button>
+            <div class="detail-image" id="detailImageContainer">
+                <img id="detailImage" src="" alt="Producto" />
+            </div>
             <div class="detail-category" id="detailCategory">Categoría</div>
             <h3 id="detailName">Nombre</h3>
             <div class="detail-price" id="detailPrice">L 0.00</div>
             <div class="detail-desc" id="detailDesc">Descripción</div>
             <div class="detail-attributes" id="detailAttributes">
-                <!-- Atributos dinámicos -->
-            </div>
-            <div class="detail-note">
-                <i class="fas fa-info-circle"></i>
-                La imagen de la prenda es una guía visual del estilo que estás adquiriendo; el producto final es una selección propia diseñada para ofrecerte la misma experiencia de moda con nuestro sello artesanal.
+                <!-- Atributos se inyectan con JS, si no hay no se muestra nada -->
             </div>
             <button class="btn-add" id="detailAddBtn" data-id="">
                 <i class="fas fa-plus"></i> Agregar al carrito
@@ -1488,24 +1524,20 @@
         // ============================================================
         function convertDriveUrl(url) {
             if (!url) return '';
-            // Si ya es un enlace directo de Google (lh3.googleusercontent.com) o de otros dominios, lo dejamos igual
             if (url.includes('lh3.googleusercontent.com')) return url;
-            // Si contiene /file/d/ extraemos el ID y construimos el directo
             const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
             if (match && match[1]) {
                 return 'https://lh3.googleusercontent.com/d/' + match[1];
             }
-            // Si contiene /open?id= también extraemos
             const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
             if (match2 && match2[1]) {
                 return 'https://lh3.googleusercontent.com/d/' + match2[1];
             }
-            // Si no es de Drive, devolvemos la URL tal cual
             return url;
         }
 
         // ============================================================
-        //  DATOS INICIALES (con ejemplos de URLs de Drive)
+        //  DATOS INICIALES
         // ============================================================
         const DEFAULT_PRODUCTS = [
             { id: 1, name: 'Vestido Elegante', desc: 'Tela fluida, corte midi, ideal para ocasiones especiales.',
@@ -1593,6 +1625,7 @@
         // Detail modal
         const detailModal = $('detailModal');
         const closeDetailBtn = $('closeDetailBtn');
+        const detailImage = $('detailImage');
         const detailCategory = $('detailCategory');
         const detailName = $('detailName');
         const detailPrice = $('detailPrice');
@@ -1679,7 +1712,7 @@
         }
 
         // ============================================================
-        //  RENDERIZAR PRODUCTOS (con filtro y búsqueda)
+        //  RENDERIZAR PRODUCTOS
         // ============================================================
         function renderProducts() {
             let filtered = products;
@@ -1707,9 +1740,7 @@
             }
 
             productsContainer.innerHTML = filtered.map(p => {
-                // Convertir URL de Drive si es necesario
                 let imgSrc = convertDriveUrl(p.img || '');
-                // Si no hay imagen, usamos placeholder
                 if (!imgSrc) {
                     imgSrc = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23f0e8e4%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22sans-serif%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3ESin imagen%3C/text%3E%3C/svg%3E';
                 }
@@ -1753,18 +1784,22 @@
         }
 
         // ============================================================
-        //  MODAL DE DETALLES
+        //  MODAL DE DETALLES (con imagen grande y sin mensajes innecesarios)
         // ============================================================
         function openDetail(id) {
             const p = products.find(prod => prod.id === id);
             if (!p) return;
 
             const categoryLabel = p.category.charAt(0).toUpperCase() + p.category.slice(1);
+            const imgSrc = convertDriveUrl(p.img || '');
+            detailImage.src = imgSrc || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f0e8e4%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22sans-serif%22 font-size=%2220%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3ESin imagen%3C/text%3E%3C/svg%3E';
+
             detailCategory.textContent = categoryLabel;
             detailName.textContent = p.name;
             detailPrice.textContent = `L ${p.price}`;
             detailDesc.textContent = p.desc;
 
+            // Atributos: si no hay, ocultamos la sección
             let attrHtml = '';
             if (p.attributes) {
                 const lines = p.attributes.split('%0A');
@@ -1780,10 +1815,13 @@
                     }
                 });
             }
-            if (!attrHtml) {
-                attrHtml = '<p style="color:var(--gris);">No hay atributos disponibles.</p>';
+            if (attrHtml) {
+                detailAttributes.innerHTML = attrHtml;
+                detailAttributes.style.display = 'block';
+            } else {
+                detailAttributes.innerHTML = '';
+                detailAttributes.style.display = 'none';
             }
-            detailAttributes.innerHTML = attrHtml;
 
             detailAddBtn.dataset.id = p.id;
             detailModal.classList.add('active');
@@ -2107,7 +2145,6 @@
                 return;
             }
 
-            // Convertir URL de Drive si es necesario
             const convertedImg = convertDriveUrl(img);
 
             const editIdVal = editId.value;
@@ -2162,13 +2199,11 @@
             testImageResult.textContent = '🔍 Probando...';
             testImageResult.className = 'test-image-result';
 
-            // Crear imagen invisible para probar
             const img = new Image();
             img.crossOrigin = 'anonymous';
             img.onload = function() {
                 testImageResult.textContent = '✅ ¡La imagen es válida! Se mostrará correctamente.';
                 testImageResult.className = 'test-image-result success';
-                // Mostrar miniatura
                 const thumb = document.createElement('img');
                 thumb.src = converted;
                 thumb.style.maxWidth = '100px';
@@ -2176,7 +2211,6 @@
                 thumb.style.borderRadius = '8px';
                 thumb.style.marginTop = '6px';
                 thumb.style.border = '1px solid var(--gris-claro)';
-                // Remover thumb anterior
                 const oldThumb = testImageResult.querySelector('img');
                 if (oldThumb) oldThumb.remove();
                 testImageResult.appendChild(thumb);
